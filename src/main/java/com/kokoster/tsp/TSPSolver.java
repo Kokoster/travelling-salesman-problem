@@ -7,7 +7,7 @@ import java.util.Random;
  * Created by kokoster on 13/02/2017.
  */
 public class TSPSolver {
-    private static final int MAX_RETRIES_COUNT = 50;
+    private static final int MAX_RETRIES_COUNT = 100;
 
     public ArrayList<Path> findPath(PathValues values, int populationSize, int nodesCount) {
         ArrayList<Path> history = new ArrayList<>();
@@ -30,7 +30,7 @@ public class TSPSolver {
             mutationManager.mutate(child);
 
             population.add(child);
-            selector.selectSurvived(population, values, populationSize);
+            population = selector.selectSurvived(population, values, populationSize);
 
             if (parents.get(0) == population.get(0) &&
                     parents.get(1) == population.get(1)) {
@@ -39,7 +39,9 @@ public class TSPSolver {
                 retriesCount = 0;
             }
 
-            history.add(population.get(0));
+            if (! population.get(0).equals(history.get(history.size() - 1))) {
+                history.add(population.get(0));
+            }
         }
 
         return history;

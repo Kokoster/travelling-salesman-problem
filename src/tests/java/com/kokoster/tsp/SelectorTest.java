@@ -17,23 +17,23 @@ public class SelectorTest {
         PathValues values =  new PathValues(3);
         values.setValue(0, 1, 1.0);
         values.setValue(0, 2, 2.0);
-        values.setValue(1, 0, 3.0);
-        values.setValue(1, 2, 4.0);
-        values.setValue(2, 0, 5.0);
-        values.setValue(2, 1, 6.0);
+        values.setValue(1, 0, 4.0);
+        values.setValue(1, 2, 8.0);
+        values.setValue(2, 0, 13.0);
+        values.setValue(2, 1, 20.0);
 
         ArrayList<Path> paths = new ArrayList<>();
         
-        paths.add(new Path(1, 2, 0)); // 10
-        paths.add(new Path(0, 1, 2)); // 10
-        paths.add(new Path(2, 0, 1)); // 10
-        paths.add(new Path(2, 1, 0)); // 11
+        paths.add(new Path(1, 2, 0)); // 22
+        paths.add(new Path(0, 2, 1)); // 26
+        paths.add(new Path(2, 0, 1)); // 25
+        paths.add(new Path(2, 1, 0)); // 26
 
         Selector selector = new Selector();
         ArrayList<Path> parents = selector.selectParents(paths, values);
 
         ArrayList<Path> expectedParents =
-                new ArrayList<>(Arrays.asList(new Path(1, 2, 0), new Path(0, 1, 2)));
+                new ArrayList<>(Arrays.asList(new Path(1, 2, 0), new Path(2, 0, 1)));
 
         assertEquals(expectedParents, parents);
     }
@@ -43,23 +43,23 @@ public class SelectorTest {
         PathValues values =  new PathValues(3);
         values.setValue(0, 1, 1.0);
         values.setValue(0, 2, 2.0);
-        values.setValue(1, 0, 3.0);
-        values.setValue(1, 2, 4.0);
-        values.setValue(2, 0, 5.0);
-        values.setValue(2, 1, 6.0);
+        values.setValue(1, 0, 4.0);
+        values.setValue(1, 2, 8.0);
+        values.setValue(2, 0, 13.0);
+        values.setValue(2, 1, 20.0);
 
         ArrayList<Path> paths = new ArrayList<>();
 
-        paths.add(new Path(1, 2, 0)); // 10
-        paths.add(new Path(0, 1, 2)); // 10
-        paths.add(new Path(2, 0, 1)); // 10
-        paths.add(new Path(2, 1, 0)); // 11
+        paths.add(new Path(1, 2, 0)); // 22
+        paths.add(new Path(0, 2, 1)); // 26
+        paths.add(new Path(2, 0, 1)); // 25
+        paths.add(new Path(2, 1, 0)); // 26
 
         Selector selector = new Selector();
         ArrayList<Path> parents = selector.selectSurvived(paths, values, 2);
 
         ArrayList<Path> expectedParents =
-                new ArrayList<>(Arrays.asList(new Path(1, 2, 0), new Path(0, 1, 2)));
+                new ArrayList<>(Arrays.asList(new Path(1, 2, 0), new Path(2, 0, 1)));
 
         assertEquals(expectedParents, parents);
     }
