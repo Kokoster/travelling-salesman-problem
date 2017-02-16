@@ -9,12 +9,12 @@ import java.util.Random;
 public class TSPSolver {
     private static final int MAX_RETRIES_COUNT = 100;
 
-    public ArrayList<Path> findPath(PathValues values, int populationSize, int nodesCount) {
+    public ArrayList<Path> findPath(int startPoint, PathValues values, int populationSize, int nodesCount) {
         ArrayList<Path> history = new ArrayList<>();
 
         Generator populationGenerator = new Generator();
         ArrayList<Path> population =
-                populationGenerator.generatePopulation(populationSize, nodesCount, values);
+                populationGenerator.generatePopulation(startPoint, populationSize, nodesCount, values);
         history.add(population.get(0));
 
         Random rand = new Random();
@@ -26,7 +26,7 @@ public class TSPSolver {
         while (retriesCount < MAX_RETRIES_COUNT) {
             ArrayList<Path> parents = selector.selectParents(population, values);
 
-            Path child = crossoverManager.doCrossover(parents.get(0), parents.get(1), values);
+            Path child = crossoverManager.doCrossover(startPoint, parents.get(0), parents.get(1), values);
             mutationManager.mutate(child);
 
             population.add(child);

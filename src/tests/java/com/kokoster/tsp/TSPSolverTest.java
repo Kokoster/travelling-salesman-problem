@@ -25,7 +25,7 @@ public class TSPSolverTest {
         values.setValues(valuesArray);
 
         TSPSolver solver = new TSPSolver();
-        ArrayList<Path> history = solver.findPath(values, 2, 6);
+        ArrayList<Path> history = solver.findPath(0, values, 2, 6);
         Path child = history.get(history.size() - 1);
 
         System.out.println("Child: " + child + " : "  + values.calculateFitness(child));

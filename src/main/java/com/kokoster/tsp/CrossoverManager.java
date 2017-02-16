@@ -13,14 +13,14 @@ public class CrossoverManager {
         this. rand = rand;
     }
 
-    public Path doCrossover(Path firstParent, Path secondParent, PathValues values) {
+    public Path doCrossover(int startPoint, Path firstParent, Path secondParent, PathValues values) {
         Path child = new Path();
         int pathSize = firstParent.size();
 
         boolean[] visited = new boolean[pathSize];
         Arrays.fill(visited, false);
 
-        int firstNode = rand.nextInt(pathSize);
+        int firstNode = firstParent.getNode(0);
         child.addNode(firstNode);
         visited[firstNode] = true;
         int node = firstNode;

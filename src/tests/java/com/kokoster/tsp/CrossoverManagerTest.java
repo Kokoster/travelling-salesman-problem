@@ -35,7 +35,7 @@ public class CrossoverManagerTest {
         when(rand.nextInt(firstParent.size())).thenReturn(0).thenReturn(1).thenReturn(1).thenReturn(2).thenReturn(2).thenReturn(5);
 
         CrossoverManager crossoverManager = new CrossoverManager(rand);
-        Path child = crossoverManager.doCrossover(firstParent, secondParent, values);
+        Path child = crossoverManager.doCrossover(0, firstParent, secondParent, values);
 
         Path expectedChild = new Path(0, 4, 6, 1, 3, 2, 5);
 

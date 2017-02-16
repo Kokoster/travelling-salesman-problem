@@ -29,7 +29,7 @@ public class TSPVisualiser {
 
     public void render() throws InterruptedException {
         TSPSolver solver = new TSPSolver();
-        ArrayList<Path> history = solver.findPath(new PathValues(map), 2, map.size());
+        ArrayList<Path> history = solver.findPath(0, new PathValues(map), 2, map.size());
 
         for (Path child : history) {
 //            System.out.println(child);

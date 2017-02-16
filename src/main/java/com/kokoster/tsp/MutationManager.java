@@ -1,5 +1,7 @@
 package com.kokoster.tsp;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -15,8 +17,8 @@ public class MutationManager {
     public void mutate(Path path) {
         int size = path.size();
 
-        int firstIndex = rand.nextInt(size);
-        int secondIndex = rand.nextInt(size);
+        int firstIndex = rand.nextInt(size - 1) + 1;
+        int secondIndex = rand.nextInt(size - 1) + 1;
 
         path.swap(firstIndex, secondIndex);
     }

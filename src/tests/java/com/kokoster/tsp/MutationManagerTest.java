@@ -18,12 +18,12 @@ public class MutationManagerTest {
         Path child = new Path(0, 1, 2, 3, 4);
 
         Random rand = mock(Random.class);
-        when(rand.nextInt(child.size())).thenReturn(1).thenReturn(3);
+        when(rand.nextInt(child.size() - 1)).thenReturn(1).thenReturn(3);
 
         MutationManager mutationManager = new MutationManager(rand);
         mutationManager.mutate(child);
 
-        Path expectedChild = new Path(0, 3, 2, 1, 4);
+        Path expectedChild = new Path(0, 1, 4, 3, 2);
 
         assertEquals(child, expectedChild);
     }
