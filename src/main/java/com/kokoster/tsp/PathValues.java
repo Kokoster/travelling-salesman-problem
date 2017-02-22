@@ -19,9 +19,9 @@ public class PathValues {
         }
     }
 
-    public PathValues(ArrayList<Point> points) {
+    public PathValues(PointSet pointSet) {
         values = new ArrayList<>();
-        int size = points.size();
+        int size = pointSet.size();
 
         for (int i = 0; i < size; ++i) {
             values.add(new ArrayList<>());
@@ -30,8 +30,10 @@ public class PathValues {
                 if (i == j) {
                     values.get(i).add(1e9);
                 } else {
-                    double value = Math.sqrt((points.get(i).x - points.get(j).x) * ((points.get(i).x - points.get(j).x)) +
-                                             (points.get(i).y - points.get(j).y) * (points.get(i).y - points.get(j).y));
+                    double value = Math.sqrt((pointSet.getPoint(i).x - pointSet.getPoint(j).x) *
+                            ((pointSet.getPoint(i).x - pointSet.getPoint(j).x)) +
+                                             (pointSet.getPoint(i).y - pointSet.getPoint(j).y) *
+                                                     (pointSet.getPoint(i).y - pointSet.getPoint(j).y));
                     values.get(i).add(value);
                 }
             }

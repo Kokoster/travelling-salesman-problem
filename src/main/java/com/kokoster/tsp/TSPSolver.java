@@ -7,15 +7,27 @@ import java.util.Random;
  * Created by kokoster on 13/02/2017.
  */
 public class TSPSolver {
-    private static final int MAX_RETRIES_COUNT = 100;
+    private static final int MAX_RETRIES_COUNT = (int) 1e5;
 
-    public ArrayList<Path> findPath(int startPoint, PathValues values, int populationSize, int nodesCount) {
-        ArrayList<Path> history = new ArrayList<>();
+    private Solution solution;
 
-        Generator populationGenerator = new Generator();
-        ArrayList<Path> population =
-                populationGenerator.generatePopulation(startPoint, populationSize, nodesCount, values);
-        history.add(population.get(0));
+    private int startPoint;
+    private PathValues values;
+    private int populationSize;
+    private int nodesCount;
+
+    TSPSolver(int startPoint, PathValues values, int populationSize, int nodesCount) {
+        solution = new Solution();
+
+        this.startPoint = startPoint;
+        this.values = values;
+        this.populationSize = populationSize;
+        this.nodesCount = nodesCount;
+    }
+
+    public void solve() {
+        ArrayList<Path> population = generatePopulation();
+        solution.setCurrentSolution(population.get(0));
 
         Random rand = new Random();
         Selector selector = new Selector();
@@ -39,11 +51,18 @@ public class TSPSolver {
                 retriesCount = 0;
             }
 
-            if (! population.get(0).equals(history.get(history.size() - 1))) {
-                history.add(population.get(0));
+            if (!population.get(0).equals(solution.getCurrentSolution())) {
+                solution.setCurrentSolution(population.get(0));
             }
         }
+    }
 
-        return history;
+    public Solution getCurrentSolution() {
+        return solution;
+    }
+
+    private ArrayList<Path> generatePopulation() {
+        Generator populationGenerator = new Generator();
+        return populationGenerator.generatePopulation(startPoint, populationSize, nodesCount, values);
     }
 }
