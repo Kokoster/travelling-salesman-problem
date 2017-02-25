@@ -3,10 +3,6 @@ package com.kokoster.tsp.TSP;
 import com.kokoster.tsp.Models.Path;
 import com.kokoster.tsp.Models.PathValues;
 import com.kokoster.tsp.Models.Solution;
-import com.kokoster.tsp.TSP.CrossoverManager;
-import com.kokoster.tsp.TSP.Generator;
-import com.kokoster.tsp.TSP.MutationManager;
-import com.kokoster.tsp.TSP.Selector;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -1,8 +1,5 @@
 package com.kokoster.tsp.Models;
 
-import com.kokoster.tsp.Models.Point;
-import com.kokoster.tsp.Models.PointSet;
-
 /**
  * Created by kokoster on 22/02/2017.
  */

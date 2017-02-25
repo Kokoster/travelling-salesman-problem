@@ -1,8 +1,5 @@
 package com.kokoster.tsp.Models;
 
-import com.kokoster.tsp.Models.Point;
-import com.kokoster.tsp.Models.PointSet;
-
 import java.util.Random;
 
 /**
