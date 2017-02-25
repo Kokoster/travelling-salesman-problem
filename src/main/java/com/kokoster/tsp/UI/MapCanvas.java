@@ -1,6 +1,7 @@
 package com.kokoster.tsp.UI;
 
 import com.kokoster.tsp.*;
+import com.kokoster.tsp.Point;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ public class MapCanvas extends JPanel {
     private static final int HEIGHT = 600;
 
     PointSet pointSet;
-    private Path currentPath;
+    private Path path;
 
     double koefX;
     double koefY;
@@ -24,7 +25,7 @@ public class MapCanvas extends JPanel {
         koefX = (double) (WIDTH - 20) / pointSet.getMaxPointByX().x;
         koefY = (double) (HEIGHT - 20) / pointSet.getMaxPointByY().y;
 
-        currentPath = null;
+        path = null;
 
         setBackground(Color.white);
     }
@@ -39,42 +40,46 @@ public class MapCanvas extends JPanel {
         super.paintComponent(g);
 
         g.setColor(Color.black);
-        if (currentPath == null) {
-            drawPoints(g);
-        } else {
+        if (path != null) {
             drawPathLines(g);
-            drawPoints(g);
         }
+
+        drawPoints(g);
     }
 
     private void drawPoints(Graphics g) {
         int size = pointSet.size();
 
         for (int i = 0; i < size; ++i) {
-            g.fillOval((int) (pointSet.getPoint(i).x * koefX) - 3, (int) (HEIGHT - pointSet.getPoint(i).y * koefY) - 3, 6, 6);
+            drawSinglePoint(g, pointSet.getPoint(i));
         }
     }
 
+    private void drawSinglePoint(Graphics g, Point point) {
+        g.fillOval((int) (point.x * koefX) - 3,
+                   (int) (HEIGHT - point.y * koefY) - 3, 6, 6);
+    }
+
     private void drawPathLines(Graphics g) {
-        int size = currentPath.size();
+        int size = path.size();
 
         for (int i = 0; i < size - 1; ++i) {
-            com.kokoster.tsp.Point first = pointSet.getPoint((currentPath.getNode(i)));
-            com.kokoster.tsp.Point second = pointSet.getPoint((currentPath.getNode(i + 1)));
+            Point first = pointSet.getPoint((path.getNode(i)));
+            Point second = pointSet.getPoint((path.getNode(i + 1)));
 
             g.drawLine((int) (first.x * koefX), (int) (HEIGHT - first.y * koefY),
                        (int) (second.x * koefX), (int) (HEIGHT - second.y * koefY));
         }
 
-        com.kokoster.tsp.Point first = pointSet.getPoint((currentPath.getNode(size - 1)));
-        com.kokoster.tsp.Point second = pointSet.getPoint((currentPath.getNode(0)));
+        Point first = pointSet.getPoint((path.getNode(size - 1)));
+        Point second = pointSet.getPoint((path.getNode(0)));
 
         g.drawLine((int) (first.x * koefX), (int) (HEIGHT - first.y * koefY),
                   (int) (second.x * koefX), (int) (HEIGHT - second.y * koefY));
     }
 
     public void setPath(Path newPath) {
-        currentPath = newPath;
+        path = newPath;
         repaint();
     }
 }

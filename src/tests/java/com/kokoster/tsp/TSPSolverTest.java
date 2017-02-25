@@ -24,7 +24,7 @@
 //        PathValues values = new PathValues(6);
 //        values.setValues(valuesArray);
 //
-//        TSPSolver solver = new TSPSolver(0, values, 2, 6);
+//        Solver solver = new Solver(0, values, 2, 6);
 //        ArrayList<Path> history = solver.solve();
 //        Path child = history.get(history.size() - 1);
 //

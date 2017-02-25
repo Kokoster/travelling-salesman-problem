@@ -8,17 +8,17 @@ import java.awt.*;
 /**
  * Created by kokoster on 14/02/2017.
  */
-public class TSPSolutionView {
+public class SolutionView {
     private MapCanvas canvas;
 
-    public TSPSolutionView(PointSet pointSet, TSPSolver solver) {
+    public SolutionView(PointSet pointSet, Solution solution) {
         JFrame frame = new JFrame("Path drawer");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         canvas = new MapCanvas(pointSet);
         frame.getContentPane().add(canvas, BorderLayout.CENTER);
 
-        solver.getCurrentSolution().addListener(path -> canvas.setPath(path));
+        solution.addListener(path -> canvas.setPath(path));
 
         frame.pack();
         frame.setLocationRelativeTo(null);

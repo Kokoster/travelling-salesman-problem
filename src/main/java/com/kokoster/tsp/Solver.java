@@ -6,8 +6,8 @@ import java.util.Random;
 /**
  * Created by kokoster on 13/02/2017.
  */
-public class TSPSolver {
-    private static final int MAX_RETRIES_COUNT = (int) 1e5;
+public class Solver {
+    private static final int MAX_RETRIES_COUNT = (int) 1e7;
 
     private Solution solution;
 
@@ -16,7 +16,7 @@ public class TSPSolver {
     private int populationSize;
     private int nodesCount;
 
-    TSPSolver(int startPoint, PathValues values, int populationSize, int nodesCount) {
+    Solver(int startPoint, PathValues values, int populationSize, int nodesCount) {
         solution = new Solution();
 
         this.startPoint = startPoint;
@@ -57,7 +57,7 @@ public class TSPSolver {
         }
     }
 
-    public Solution getCurrentSolution() {
+    public Solution getSolution() {
         return solution;
     }
 
