@@ -1,4 +1,12 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.TSP;
+
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PathValues;
+import com.kokoster.tsp.Models.Solution;
+import com.kokoster.tsp.TSP.CrossoverManager;
+import com.kokoster.tsp.TSP.Generator;
+import com.kokoster.tsp.TSP.MutationManager;
+import com.kokoster.tsp.TSP.Selector;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -6,8 +14,9 @@ import java.util.Random;
 /**
  * Created by kokoster on 13/02/2017.
  */
+
 public class Solver {
-    private static final int MAX_RETRIES_COUNT = (int) 1e7;
+    private static final int MAX_RETRIES_COUNT = (int) 1e5;
 
     private Solution solution;
 
@@ -16,7 +25,7 @@ public class Solver {
     private int populationSize;
     private int nodesCount;
 
-    Solver(int startPoint, PathValues values, int populationSize, int nodesCount) {
+    public Solver(int startPoint, PathValues values, int populationSize, int nodesCount) {
         solution = new Solution();
 
         this.startPoint = startPoint;
@@ -29,6 +38,7 @@ public class Solver {
         ArrayList<Path> population = generatePopulation();
         solution.setCurrentSolution(population.get(0));
 
+//        package private methods ?
         Random rand = new Random();
         Selector selector = new Selector();
         CrossoverManager crossoverManager = new CrossoverManager(rand);
@@ -55,6 +65,8 @@ public class Solver {
                 solution.setCurrentSolution(population.get(0));
             }
         }
+
+        System.out.println("FINISHED");
     }
 
     public Solution getSolution() {

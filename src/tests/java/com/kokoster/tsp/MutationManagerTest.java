@@ -1,5 +1,7 @@
 package com.kokoster.tsp;
 
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.TSP.MutationManager;
 import org.junit.Test;
 
 import java.util.Random;

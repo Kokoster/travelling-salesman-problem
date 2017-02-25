@@ -1,4 +1,7 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.TSP;
+
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PathValues;
 
 import java.util.ArrayList;
 import java.util.Collections;

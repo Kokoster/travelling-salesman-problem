@@ -1,4 +1,4 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.Models;
 
 import java.util.ArrayList;
 

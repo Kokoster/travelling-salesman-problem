@@ -1,6 +1,7 @@
 package com.kokoster.tsp.UI;
 
-import com.kokoster.tsp.*;
+import com.kokoster.tsp.Models.PointSet;
+import com.kokoster.tsp.Models.Solution;
 
 import javax.swing.*;
 import java.awt.*;

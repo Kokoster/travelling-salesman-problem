@@ -1,5 +1,8 @@
 package com.kokoster.tsp;
 
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PathValues;
+import com.kokoster.tsp.TSP.Selector;
 import org.junit.Test;
 
 import java.util.ArrayList;

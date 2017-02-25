@@ -1,7 +1,7 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.TSP;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import com.kokoster.tsp.Models.Path;
+
 import java.util.Random;
 
 /**

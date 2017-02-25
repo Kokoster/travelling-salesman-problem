@@ -1,12 +1,15 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.TSP;
+
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PathValues;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.concurrent.Callable;
 
 /**
  * Created by kokoster on 04/02/2017.
  */
+
 public class Selector {
     public ArrayList<Path> selectParents(ArrayList<Path> paths, PathValues values) {
         Collections.sort(paths,

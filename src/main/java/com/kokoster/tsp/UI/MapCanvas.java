@@ -1,7 +1,8 @@
 package com.kokoster.tsp.UI;
 
-import com.kokoster.tsp.*;
-import com.kokoster.tsp.Point;
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PointSet;
+import com.kokoster.tsp.Models.Point;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,8 +23,8 @@ public class MapCanvas extends JPanel {
     public MapCanvas(PointSet pointSet) {
         this.pointSet = pointSet;
 
-        koefX = (double) (WIDTH - 20) / pointSet.getMaxPointByX().x;
-        koefY = (double) (HEIGHT - 20) / pointSet.getMaxPointByY().y;
+        koefX = (double) (WIDTH - 20) / pointSet.getFarthestPointByX().x;
+        koefY = (double) (HEIGHT - 20) / pointSet.getFarthestPointByY().y;
 
         path = null;
 

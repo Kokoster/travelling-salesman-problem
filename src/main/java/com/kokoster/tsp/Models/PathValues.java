@@ -1,4 +1,7 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.Models;
+
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PointSet;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.kokoster.tsp;
+package com.kokoster.tsp.Models;
 
 /**
  * Created by kokoster on 13/02/2017.

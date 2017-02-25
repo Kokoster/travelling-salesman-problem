@@ -1,5 +1,8 @@
 package com.kokoster.tsp;
 
+import com.kokoster.tsp.Models.Path;
+import com.kokoster.tsp.Models.PathValues;
+
 import static org.junit.Assert.*;
 
 /**

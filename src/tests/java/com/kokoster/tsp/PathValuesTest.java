@@ -1,9 +1,9 @@
 package com.kokoster.tsp;
 
+import com.kokoster.tsp.Models.PathValues;
+import com.kokoster.tsp.Models.Point;
+import com.kokoster.tsp.Models.PointSet;
 import org.junit.Test;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -24,34 +24,23 @@ public class PathValuesTest {
         assertEquals((Double) 1e9, values.getValue(2, 2));
     }
 
-    private class TestPointSet implements  PointSet {
-        ArrayList<Point> points = new ArrayList<>();
+    private class TestPointSet extends PointSet {
+        public TestPointSet() {
+            super();
 
-        @Override
-        public void generatePointSet(int pointsCount, int maxValue) {
             points.add(new Point(0, 0));
             points.add(new Point(0, 4));
             points.add(new Point(3, 0));
         }
 
         @Override
-        public Point getMaxPointByX() {
+        public Point getFarthestPointByX() {
             return new Point(3, 0);
         }
 
         @Override
-        public Point getMaxPointByY() {
+        public Point getFarthestPointByY() {
             return new Point(0, 4);
-        }
-
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @Override
-        public Point getPoint(int i) {
-            return null;
         }
     }
 }
