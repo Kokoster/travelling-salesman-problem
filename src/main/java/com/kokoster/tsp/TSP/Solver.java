@@ -12,7 +12,7 @@ import java.util.Random;
  */
 
 public class Solver {
-    private static final int MAX_RETRIES_COUNT = (int) 1e5;
+    private static final int MAX_RETRIES_COUNT = (int) 1e4;
 
     private Solution solution;
 
@@ -42,6 +42,8 @@ public class Solver {
 
         int retriesCount = 0;
         while (retriesCount < MAX_RETRIES_COUNT) {
+//            System.out.println("retries count: " + retriesCount);
+
             ArrayList<Path> parents = selector.selectParents(population, values);
 
             Path child = crossoverManager.doCrossover(startPoint, parents.get(0), parents.get(1), values);

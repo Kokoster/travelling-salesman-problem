@@ -18,7 +18,7 @@ public class Application {
     public void run() {
         Solver solver = new Solver(0, new PathValues(pointSet), 2, pointSet.size());
 
-        new SolutionView(pointSet, solver.getSolution());
+        new SolutionView(pointSet, new PathValues(pointSet), solver.getSolution());
 
         new Thread(solver::solve).start();
     }
